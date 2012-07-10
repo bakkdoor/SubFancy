@@ -20,15 +20,21 @@ class SubFancy Server FindDefinition {
     Fancy CodeLoader filename_for: filename
   }
 
+  private: ('nested_class_by_name:, 'find_file:)
+
+  # api methods:
+
   def find_instance_method: method_name in_class: class_name {
+    "find_instance_method: #{method_name inspect} in_class: #{class_name inspect} -> " print
     c = nested_class_by_name: class_name
     exec = c instance_method: method_name . executable
-    [find_file: (exec file), exec definition_line, exec last_line]
+    [find_file: (exec file), exec definition_line, exec last_line] tap: @{ inspect println }
   }
 
   def find_class_method: method_name in_class: class_name {
+    "find_class_method: #{method_name inspect} in_class: #{class_name inspect} -> " print
     c = nested_class_by_name: class_name
     exec = c method: method_name . executable
-    [find_file: (exec file), exec definition_line, exec last_line]
+    [find_file: (exec file), exec definition_line, exec last_line] tap: @{ inspect println}
   }
 }
