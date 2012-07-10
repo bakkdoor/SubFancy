@@ -1,5 +1,5 @@
 #!/usr/bin/env fancy
 
-require: "../fy/sub_fancy"
+require: "../lib/sub_fancy"
 
 SubFancy Server run: "0.0.0.0:52400"

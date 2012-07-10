@@ -1,0 +1,6 @@
+[
+    {
+        "caption": "SubFancy: Go to Definition",
+        "command": "sub_fancy_goto_definition"
+    }
+]
