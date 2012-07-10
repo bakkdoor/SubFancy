@@ -10,3 +10,7 @@ Any SubFancy command makes a request to a SubFancy process running in the backgr
 * Jump to class / method definition
 * Eval Fancy code in the current context
 * Live auto-completion
+* Live debugger with support for:
+    * breakpoints
+    * locals & stack inspection
+    * stepping / skipping / jumping callframes
