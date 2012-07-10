@@ -15,15 +15,20 @@ class SubFancy Server FindDefinition {
     return val
   }
 
+  def find_file: filename {
+    filename = filename to_s substitute: /^lib\// with: ""
+    Fancy CodeLoader filename_for: filename
+  }
+
   def find_instance_method: method_name in_class: class_name {
     c = nested_class_by_name: class_name
     exec = c instance_method: method_name . executable
-    [exec file, exec definition_line, exec last_line]
+    [find_file: (exec file), exec definition_line, exec last_line]
   }
 
   def find_class_method: method_name in_class: class_name {
     c = nested_class_by_name: class_name
-    exec = c instance_method: method_name . executable
-    [exec file, exec definition_line, exec last_line]
+    exec = c method: method_name . executable
+    [find_file: (exec file), exec definition_line, exec last_line]
   }
 }
