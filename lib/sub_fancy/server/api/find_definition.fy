@@ -25,14 +25,12 @@ class SubFancy Server API FindDefinition : SubFancy Server API Handler {
   # api methods:
 
   def find_instance_method: method_name in_class: class_name {
-    c = nested_class_by_name: class_name
-    exec = c instance_method: method_name . executable
+    exec = nested_class_by_name: class_name . instance_method: method_name . executable
     [find_file: (exec file), exec definition_line, exec last_line]
   }
 
   def find_class_method: method_name in_class: class_name {
-    c = nested_class_by_name: class_name
-    exec = c method: method_name . executable
+    exec = nested_class_by_name: class_name . method: method_name . executable
     [find_file: (exec file), exec definition_line, exec last_line]
   }
 }
