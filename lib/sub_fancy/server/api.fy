@@ -8,10 +8,10 @@ class SubFancy Server API {
 
         message_with_args = m to_s rest
         if: (method executable total_args > 0) then: {
-          message_with_args = m to_s split: ":" . map_with_index: |a i| { "#{a}: \" << arg_#{i} << \""} . join: " "
+          message_with_args = m to_s split: ":" . map_with_index: |a i| { "#{a}: \" << (arg_#{i} inspect) << \""} . join: " "
         }
 
-        target_class class_eval: $ """
+        target_class class_eval: """
           def #{method selector_with_args} {
             \"#{message_with_args} -> \" print
             __old__#{method selector_with_args} . tap: @{ inspect println }
