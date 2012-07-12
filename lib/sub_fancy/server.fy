@@ -2,13 +2,9 @@ require: "msgpack.fy"
 
 class SubFancy Server
 
-require: "server/find_definition"
+require: "server/api"
 
 class SubFancy Server {
-  class API {
-    include: FindDefinition
-  }
-
   def initialize: @host port: @port
 
   def run {
