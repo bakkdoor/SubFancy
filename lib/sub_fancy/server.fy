@@ -5,20 +5,15 @@ class SubFancy Server
 require: "server/find_definition"
 
 class SubFancy Server {
-  include: FindDefinition
-
-  def self run: host_port {
-    host, port = host_port split: ":"
-    new: host port: (port to_i) . tap: @{
-      run
-    }
+  class API {
+    include: FindDefinition
   }
 
   def initialize: @host port: @port
 
   def run {
     server = MessagePack RPC Server new
-    server listen: @host port: @port handler: self
+    server listen: @host port: @port handler: $ API new
     server run
   }
 }

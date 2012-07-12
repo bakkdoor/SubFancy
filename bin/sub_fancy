@@ -2,4 +2,4 @@
 
 require: "../lib/sub_fancy"
 
-SubFancy Server run: "0.0.0.0:52400"
+SubFancy Server new: "0.0.0.0" port: 52400 . run
