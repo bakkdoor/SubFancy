@@ -7,7 +7,7 @@ Any SubFancy command makes a request to a SubFancy process running in the backgr
 
 ### Planned features so far:
 
-* Jump to class / method definition
+* Jump to class / method definition **(nearly done)**
 * Eval Fancy code in the current context
 * Live auto-completion
 * Live debugger with support for:
